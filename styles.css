@@ -28,6 +28,7 @@ body::-webkit-scrollbar-thumb {
 
 ::selection {
   background: var(--main-accent);
+  color: var(--main-bg);
 }
 body {
   overflow-x: hidden;
