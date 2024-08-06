@@ -12,23 +12,22 @@ const typed = new Typed(".typing", {
 });
 
 // Theme changer
-const themes = [
-  "#9affe1",
-  "#abff9a",
-  "#7BF774",
-  "#F770F4",
-  "#E2F780",
-];
+const themes = ["#9affe1", "#abff9a", "#7BF774", "#F770F4", "#E2F780"];
 const root = document.querySelector(":root");
 const themeToggle = document.querySelector("#main-name");
 let currentTheme = 0;
-themeToggle.addEventListener("click", () => {
+
+function changeMainAccent() {
   currentTheme++;
   if (currentTheme == themes.length) {
     currentTheme = 0;
   }
   root.style.setProperty("--main-accent", themes[currentTheme]);
-});
+}
+
+setInterval(changeMainAccent, 10000);
+
+themeToggle.addEventListener("click", changeMainAccent);
 
 const hamburger = document.querySelector("#mobile-menu");
 const tabs = document.querySelector(".navbar__menu");

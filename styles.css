@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   scroll-behavior: smooth;
+  transition: color 0.2s;
 }
 
 :root {
@@ -221,10 +222,31 @@ a {
 
 .home__section h1 {
   font-size: 400%;
-  color: white;
+  color: transparent;
   letter-spacing: -1px;
   margin-bottom: 5px;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  background: linear-gradient(
+    90deg,
+    white 0%,
+    var(--main-accent) 52%,
+    var(--main-accent) 100%
+  );
+  background-clip: text;
+  background-size: 200% 200%; /* Ensure the gradient covers a large area */
+  animation: gradientFlip 3s ease-in-out infinite;
+}
+
+@keyframes gradientFlip {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
 .home__section h1:hover {
@@ -443,6 +465,7 @@ a {
   border-radius: 10px;
   margin-bottom: 20px;
 }
+
 .timeline ul li:last-child {
   margin-bottom: 0;
 }
@@ -459,6 +482,21 @@ a {
   font-size: 0.9rem;
   line-height: 20px;
   font-weight: 300;
+}
+.timeline__content span {
+  display: block;
+  font-size: 2rem;
+  line-height: 20px;
+  font-weight: 300;
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.timeline__content span i:hover {
+  color: var(--main-accent);
+  cursor: pointer;
 }
 .timeline__content .date {
   font-size: 12px;
@@ -501,13 +539,13 @@ a {
   .timeline ul li:nth-child(odd) {
     float: left;
     clear: right;
-    transform: translateX(-30px);
+    transform: translateX(-30px) !important;
     border-radius: 20px 0px 20px 20px;
   }
   .timeline ul li:nth-child(even) {
     float: right;
     clear: left;
-    transform: translateX(30px);
+    transform: translateX(30px) !important;
     border-radius: 0px 20px 20px 20px;
   }
   .timeline ul li::before {
