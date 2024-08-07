@@ -10,7 +10,7 @@
 :root {
   --main-accent: #9affe1;
   --main-bg: #111111;
-  --darker-bg: #151515;
+  --darker-bg: #333;
   --secondary: #6bfaff;
 }
 /* Scrollbar */
