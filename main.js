@@ -48,6 +48,7 @@ prj.addEventListener("click", function () {
   exp.classList.remove("active__btn");
   document.querySelector("#projects").classList.remove("noshow");
   document.querySelector("#experience").classList.add("noshow");
+  AOS.init();
 });
 
 exp.addEventListener("click", function () {
@@ -55,6 +56,7 @@ exp.addEventListener("click", function () {
   prj.classList.remove("active__btn");
   document.querySelector("#experience").classList.remove("noshow");
   document.querySelector("#projects").classList.add("noshow");
+  AOS.init();
 });
 
 //highlight active menu
@@ -67,32 +69,22 @@ const highlightMenu = () => {
   const stackMenu = document.querySelector("#stack-page");
 
   let scrollPos = window.scrollY;
-  if (window.innerWidth > 960 && scrollPos < 500) {
+  if (window.innerWidth < 960) return;
+
+  if (scrollPos < 500) {
     homeMenu.classList.add("highlight");
     aboutMenu.classList.remove("highlight");
-    return;
-  } else if (window.innerWidth > 960 && scrollPos < 900) {
+  } else if (scrollPos < 900) {
     aboutMenu.classList.add("highlight");
     homeMenu.classList.remove("highlight");
     resumeMenu.classList.remove("highlight");
-    return;
-  } else if (window.innerWidth > 960 && scrollPos < 1500) {
+  } else if (scrollPos < 3360) {
     resumeMenu.classList.add("highlight");
     aboutMenu.classList.remove("highlight");
     stackMenu.classList.remove("highlight");
-    return;
-  } else if (window.innerWidth > 960 && scrollPos < 3000) {
+  } else {
     stackMenu.classList.add("highlight");
     resumeMenu.classList.remove("highlight");
-
-    return;
-  }
-
-  if (
-    (activeElement && window.innerWidth < 960 && scrollPos < 600) ||
-    activeElement
-  ) {
-    activeElement.classList.remove("highlight");
   }
 };
 
