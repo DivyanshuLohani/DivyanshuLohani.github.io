@@ -1,3 +1,4 @@
+window.location.href = "https://divyanshulohani.xyz"
 // typed js
 const typed = new Typed(".typing", {
   strings: [
